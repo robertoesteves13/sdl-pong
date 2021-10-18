@@ -5,7 +5,10 @@
 class Ball : public Entity {
 public:
   Ball(const char* source, SDL_Rect&& coordinates);
+  void checkOrientation();
   void update();
 private:
-  int time = 0;
+  int speed = 1;
+  int orientationX = -1;
+  int orientationY = 1;
 };

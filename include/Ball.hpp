@@ -4,5 +4,8 @@
 
 class Ball : public Entity {
 public:
-  Ball(const char* sourceName) : Entity(sourceName) {};
+  Ball(const char* source, SDL_Rect&& coordinates);
+  void update();
+private:
+  int time = 0;
 };

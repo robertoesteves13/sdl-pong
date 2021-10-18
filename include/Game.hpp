@@ -15,11 +15,15 @@ public:
   Game(const char* title);
   
   void addPlayer(const char* player);
-  void update(SDL_Event& e);
+  void addBall(const char* player);
+  void input(SDL_Event& e);
+  void update();
   void render();
   void run();
 private:
   Window window;
+
+  int counter = 0;
 
   std::forward_list<std::shared_ptr<Listener>> listenerList;
   std::forward_list<std::shared_ptr<Entity>> entityList;

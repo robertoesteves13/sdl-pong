@@ -9,15 +9,15 @@
 
 class Entity {
 public:
-  Entity(const char* source);
+  Entity(const char* source, SDL_Rect &&coordinates);
 
   const char* getSourceName();
-  void update(int height);
-  SDL_Rect* getPosition();
+  virtual void update() = 0;
+  SDL_Rect& getCoordinates();
   SDL_Rect* getSize();
-private:
+protected:
   const char* spriteSource;
 
-  SDL_Rect position = {16, 16, 32, 200};
+  SDL_Rect entityCoordinates;
   SDL_Rect* size;
 };

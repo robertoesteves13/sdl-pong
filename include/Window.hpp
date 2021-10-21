@@ -4,14 +4,24 @@
 
 #include "SDL.h"
 
+struct WindowSize {
+  int x;
+  int y;
+};
+
 class Window {
 public:
-  Window(const char* title);
-  SDL_Window* window = nullptr;
-  SDL_Renderer* renderer = nullptr;
+  static void SetWindow(const char* title, int sizeX, int sizeY);
 
-  SDL_Texture* getSprite(const char* spriteSource);
-  void loadSprite(const char* spriteSource);
+  static SDL_Renderer* getRenderer() { return renderer; };
+  static WindowSize getWindowSize() { return Size; };
+
+  static SDL_Texture* getSprite(const char* spriteSource);
+  static void loadSprite(const char* spriteSource);
 private:
-  std::map<const char*, SDL_Texture*> spritePool;
+  static WindowSize Size;
+  
+  static SDL_Window* window;
+  static SDL_Renderer* renderer;
+  static std::map<const char*, SDL_Texture*> spritePool;
 };

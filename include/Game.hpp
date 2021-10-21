@@ -2,29 +2,27 @@
 #include <SDL_render.h>
 #include <map>
 #include <memory>
-#include <forward_list>
 #include <SDL.h>
 
 #include "Listener.hpp"
 #include "Player.hpp"
 #include "Entity.hpp"
 #include "Window.hpp"
+#include "Resources.hpp"
 
 class Game {
 public:
-  Game(const char* title);
-  
-  void addPlayer(const char* player);
-  void addBall(const char* player);
-  void input(SDL_Event& e);
-  void update();
-  void render();
-  void run();
+  static void Init(const char* title);
+  static void Run();
 private:
-  Window window;
+  static Window window;
 
-  int counter = 0;
+  static void addPlayer(const char* player);
+  static void addBall(const char* player);
 
-  std::forward_list<std::shared_ptr<Listener>> listenerList;
-  std::forward_list<std::shared_ptr<Entity>> entityList;
+  static void input(SDL_Event& e);
+  static void update();
+  static void render();
+  
+  static Resources resources;
 };

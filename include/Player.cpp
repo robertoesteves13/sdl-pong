@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "Window.hpp"
 #include <iostream>
 
 Player::Player(const char* source, SDL_Rect&& coordinates) : Entity(source, std::move(coordinates)){
@@ -18,10 +19,9 @@ void Player::inputListener(SDL_Event& e) {
 }
 
 void Player::update() {
-  if (entityCoordinates.y + updateHeight >= 0 && entityCoordinates.y + updateHeight <= 480 - this->entityCoordinates.h) {
+  if (entityCoordinates.y + updateHeight >= 0 && entityCoordinates.y + updateHeight <= Window::getWindowSize().y - this->entityCoordinates.h) {
     entityCoordinates.y += updateHeight;
   }
 
   updateHeight = 0;
 }
-

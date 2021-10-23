@@ -9,8 +9,8 @@
 
 Resources Game::resources;
   
-void Game::Init(const char *title){
-  Window::SetWindow(title, 640, 480);
+void Game::Init(const char *title, int sizeX, int sizeY){
+  Window::SetWindow(title, sizeX, sizeY);
 
   addPlayer("rectangle.bmp");
   addBall("rectangle.bmp");

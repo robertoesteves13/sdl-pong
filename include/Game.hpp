@@ -12,7 +12,7 @@
 
 class Game {
 public:
-  static void Init(const char* title);
+  static void Init(const char* title, int sizeX, int sizeY);
   static void Run();
 private:
   static Window window;
